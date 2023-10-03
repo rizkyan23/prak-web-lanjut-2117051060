@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Form Login</title>
-</head>
-<link rel="stylesheet" href="<?= base_url('assets/css/style.css') ?>"><br>
-<body>
+<?= $this->extend('layouts/app') ?>
+<?= $this->section('content') ?>
 <div class="center">
     <h1>Create User</h1>
 
     <?php if(session()->getFlashdata('errors')) : ?>
             <div class="row">
-                <div class="col-md-5">
+                <div class="col">
                     <div class="alert alert-danger" role="alert">
                         <?= session()->getFlashdata('errors') ?>
                     </div>
@@ -48,5 +43,4 @@
         <input type="submit" value="Submit">
     </div>
     </form>
-</body>
-</html>
+<?= $this->endSection() ?>

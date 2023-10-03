@@ -13,3 +13,4 @@ $routes->get('/user/profile/(:any)/(:any)/(:any)', 'UserController::profile');
 #form
 $routes->get('/user/create', 'UserController::create');
 $routes->post('/user/store', 'UserController::store');
+$routes->get('/user', 'UserController::index');
