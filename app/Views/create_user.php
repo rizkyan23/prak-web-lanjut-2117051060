@@ -14,7 +14,7 @@
         <?php endif; ?>
 
 
-    <form action="<?= base_url('/user/store') ?>" method="POST">
+    <form action="<?= base_url('/user/store') ?>" method="POST" enctype="multipart/form-data">
 
         <div class="txt_field">
           <input type="text" name="nama" placeholder="Nama">
@@ -23,6 +23,11 @@
 
         <div class="txt_field">
           <input type="text" name="npm" placeholder="NPM">
+          <span></span>
+        </div>
+
+        <div class="txt_field">
+          <input type="file" name="foto" placeholder="Foto">
           <span></span>
         </div>
 
