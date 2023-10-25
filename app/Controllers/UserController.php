@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\KelasModel;
 use App\Models\UserModel;
+use PhpParser\Node\Expr\FuncCall;
 
 class UserController extends BaseController
 {
@@ -107,6 +108,63 @@ class UserController extends BaseController
         return redirect()->to('/user');
     }
 
+
+    public function edit($id)
+    {
+        $user = $this->userModel->getUser($id);
+        $kelas = $this->kelasModel->getKelas();
+
+        $data = [
+            'title' => 'Edit User',
+            'user' => $user,
+            'kelas' => $kelas,
+        ];
+
+        return view('edit_user',$data);
+    }
+
+    public function update($id)
+    {
+       $path = 'assets/uploads/img/';
+       $foto = $this->request->getFile('foto');
+    
+       $data = [
+        'nama' => $this->request->getVar('nama'),
+        'id_kelas' => $this->request->getVar('kelas'),
+        'npm' => $this->request->getVar('npm'),
+       ];
+
+       if ($foto->isValid()){
+        $name = $foto->getRandomName();
+
+        if ($foto->move($path, $name)) {
+            $foto_path = base_url($path . $name);
+
+            $data['foto'] = $foto_path;
+        }
+       }
+
+       $result = $this->userModel->updateUser($data, $id);
+
+       if(!$result){
+        return redirect()->back()->withInput()
+        ->with('error', 'Gagal Menyimpan Data');
+       }
+
+       return  redirect()->to(base_url('/user'));
+    }
+
+    public function destroy($id)
+    {
+        $result = $this->userModel->deleteUser($id);
+        if (!$result){
+            return redirect()->back()->with('error', "Gagal Menghapus Data");
+        }
+
+        return redirect()->to(base_url('/user'))
+        ->with('succes', 'Berhasil Menghapus Data');
+    }
+
     public function show($id)
     {
         $user = $this->userModel->getUser($id);
@@ -117,4 +175,7 @@ class UserController extends BaseController
         ];
         return view('profile', $data);
     }
+
 }
+}
+

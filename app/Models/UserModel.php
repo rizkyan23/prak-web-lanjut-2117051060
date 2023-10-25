@@ -6,7 +6,6 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-
     public function saveUser($data){
         $this->insert($data);
     }
@@ -54,5 +53,13 @@ class UserModel extends Model
         }
         return $this->select('user.*, kelas.nama_kelas')
             ->join('kelas', 'kelas.id=user.id_kelas')->findAll();
+    }
+
+    public function updateUser($data, $id){
+        return $this->update($id, $data);
+    }
+
+    public function deleteUser($id){
+        return $this->delete($id);
     }
 }

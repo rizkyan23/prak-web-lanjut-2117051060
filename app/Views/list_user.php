@@ -4,7 +4,11 @@
 <div class="filter">
 
  </div>
-
+    <div class="row">
+        <div class="col">
+            <a href="<? base_url(relativePath:'user/create')?>">Tambah Data</a>
+        </div>
+    </div>
  <table >
 
  
@@ -30,9 +34,19 @@
             <td><?= $user['npm'] ?></td>
             <td><?= $user['nama_kelas'] ?></td>
             <td>
+
+                <a href="<?= base_url('user/'.$user['id']) ?>">Detail</a>
+                <a href="<?= base_url('/user/'.$user['id'].'/edit') ?>">Edit</a>
+                <form action="<?= base_url('user/'.$user['id']) ?>" method="POST">
+                <input type="hidden" name="_method" value="DELETE">
+                <?= csrf_field()?>
+                <button type="button">Delete</button> 
+                </form>
+
             <a href="<?= base_url('user/'. $user['id'])?>">Detail</a>
                     <button type="button">Edit</button>
                     <button type="button">Delete</button>
+
             </td>
         </tr>
 
