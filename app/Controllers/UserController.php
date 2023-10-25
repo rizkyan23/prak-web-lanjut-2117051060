@@ -108,6 +108,7 @@ class UserController extends BaseController
         return redirect()->to('/user');
     }
 
+
     public function edit($id)
     {
         $user = $this->userModel->getUser($id);
@@ -174,4 +175,7 @@ class UserController extends BaseController
         ];
         return view('profile', $data);
     }
+
 }
+}
+
