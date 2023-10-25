@@ -14,7 +14,9 @@
         <?php endif; ?>
 
 
-    <form action="<?= base_url('/user/store') ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= base_url('/user/'.$user['id']) ?>" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="PUT">
+    <?= csrf_field()?>
 
         <div class="txt_field">
           <input type="text" name="nama" placeholder="Nama">
@@ -25,7 +27,8 @@
           <input type="text" name="npm" placeholder="NPM">
           <span></span>
         </div>
-
+	
+	<img src="<?= $user['foto'] ?? 'assets/img/gedik.jpg' ?>">
         <div class="mb-3">
             <label for="formFile" class="form-label">Foto</label>
             <input type="file" name="foto" id="formFile">
@@ -36,9 +39,9 @@
               <?php
               foreach ($kelas as $item){
                   ?>
-                  <option value="<?= $item['id'] ?>">
-                      <?= $item['nama_kelas'] ?>
-                  </option>
+                  <option value="<?= $item['id'] ?>" <?= $user['id_kelas'] == $item['id'] ? 'selected' : '' ?> >
+                    <?= $item['nama_kelas'] ?>
+                    </option>
                   <?php
               }
               ?>
