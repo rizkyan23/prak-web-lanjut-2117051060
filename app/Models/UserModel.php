@@ -28,9 +28,14 @@ class UserModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'nama' => 'required'
+        'nama' => 'required' , 
+        'npm' => 'required'
     ]; 
-    protected $validationMessages   = [];
+    protected $validationMessages   = [
+        'nama' => [
+            'required' => 'Field Nama harus diisi'
+        ]
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

@@ -19,12 +19,13 @@
     <?= csrf_field()?>
 
         <div class="txt_field">
-          <input type="text" name="nama" placeholder="Nama">
-          <span></span>
+            <input type="text" name="nama" placeholder="Nama" value="<?= $user['nama'] ?>">
+            <span></span>
         </div>
 
+
         <div class="txt_field">
-          <input type="text" name="npm" placeholder="NPM">
+          <input type="text" name="npm" placeholder="NPM" value="<?= $user['npm'] ?>">
           <span></span>
         </div>
 	
