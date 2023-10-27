@@ -7,6 +7,8 @@
     <div class="row">
         <div class="col">
             <a href="<? base_url(relativePath:'user/create')?>">Tambah Data</a>
+            <a href="<?= base_url('user/create') ?>">Tambah Data</a>
+
         </div>
     </div>
  <table >
@@ -39,7 +41,7 @@
                 <form action="<?= base_url('user/'.$user['id']) ?>" method="POST">
                 <input type="hidden" name="_method" value="DELETE">
                 <?= csrf_field()?>
-                <button type="button">Delete</button> 
+                <button type="submit">Delete</button> 
                 </form>
             </td>
         </tr>
