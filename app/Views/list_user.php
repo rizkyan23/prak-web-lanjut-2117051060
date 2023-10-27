@@ -45,10 +45,6 @@
                 <button type="submit">Delete</button> 
                 </form>
 
-            <a href="<?= base_url('user/'. $user['id'])?>">Detail</a>
-                    <button type="button">Edit</button>
-                    <button type="button">Delete</button>
-
             </td>
         </tr>
 
