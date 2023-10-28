@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/app') ?>
 <?= $this->section('content') ?>
 <div class="center">
-    <h1>Create User</h1>
+    <h1>Edit User</h1>
 
     <?php if(session()->getFlashdata('errors')) : ?>
             <div class="row">
@@ -29,7 +29,7 @@
           <span></span>
         </div>
 	
-	<img src="<?= $user['foto'] ?? 'assets/img/gedik.jpg' ?>">
+	<img src="<?= $user['foto'] ?? 'assets/img/gedik.jpg' ?>" width="50%" height="50%">
         <div class="mb-3">
             <label for="formFile" class="form-label">Foto</label>
             <input type="file" name="foto" id="formFile">
@@ -41,7 +41,7 @@
               foreach ($kelas as $item){
                   ?>
                   <option value="<?= $item['id'] ?>" <?= $user['id_kelas'] == $item['id'] ? 'selected' : '' ?> >
-                    <?= $item['nama_kelas'] ?>
+                  <?= $item['nama_kelas'] ?> <?= $item['angkatan'] ?>
                     </option>
                   <?php
               }
@@ -49,7 +49,7 @@
               
           </select>
         </div>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Save">
     </div>
     </form>
 <?= $this->endSection() ?>

@@ -1,33 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
-*{
- margin:0;
- padding: 0;
- outline: 0;
- box-sizing: border-box;
-}
-
-.filter{
- position: absolute;
- left: 0;
- top: 0;
- bottom: 0;
- right: 0;
- z-index: 1;
- background: rgb(233,76,161);
-background: -moz-linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
-background: -webkit-linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
-background: linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e94ca1",endColorstr="#c74ae9",GradientType=1);
-opacity: .7;
-}
-
 table{
  position: absolute;
  z-index: 2;
- left: 50%;
- top: 50%;
- transform: translate(-50%,-50%);
- width: 60%; 
+ left: 70px;
+ width: 90%; 
  border-collapse: collapse;
  border-spacing: 0;
  box-shadow: 0 2px 15px rgba(64,64,64,.7);
@@ -37,12 +13,12 @@ table{
 }
 
 td , th{
- padding: 15px 20px;
- text-align: center;
+ text-align: left;
  height: 50px; /* Tambahkan ini */
- overflow: hidden; /* Tambahkan ini */
  white-space: nowrap; /* Tambahkan ini */
- text-overflow: ellipsis; /* Tambahkan ini */
+ max-width: 200px; /* Batasan lebar maksimum kolom */
+ padding: 10px; /* Sesuaikan sesuai kebutuhan Anda */
+    
 }
 
 th{
@@ -51,7 +27,6 @@ th{
  font-family: 'Open Sans',Sans-serif;
  font-weight: 200;
  text-transform: uppercase;
-
 }
 
 tr{
@@ -62,4 +37,10 @@ tr{
 
 tr:nth-child(even){
  background-color: #eeeeee;
+}
+
+.tambah{
+    margin-left: 70px;
+    margin-bottom: 10px;
+    margin-top: 50px;
 }

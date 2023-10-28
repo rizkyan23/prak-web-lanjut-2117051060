@@ -37,7 +37,7 @@
               foreach ($kelas as $item){
                   ?>
                   <option value="<?= $item['id'] ?>">
-                      <?= $item['nama_kelas'] ?>
+                      <?= $item['nama_kelas'] ?> <?= $item['angkatan'] ?>
                   </option>
                   <?php
               }

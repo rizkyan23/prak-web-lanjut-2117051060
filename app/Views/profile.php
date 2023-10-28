@@ -7,7 +7,7 @@
         <div class="profile-name"><?= $user['nama'] ?></div>
         <div class="profile-info">
             <p><?= $user['npm'] ?></p>
-            <p><?= $user['nama_kelas'] ?></p>
+            <p>Kelas <?= $user['nama_kelas'] ?> Angkatan <?= $user['angkatan'] ?></p>
         </div>
     </div>
 <?= $this->endSection() ?>
