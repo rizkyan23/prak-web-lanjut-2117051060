@@ -12,6 +12,7 @@ class UserController extends BaseController
     public $userModel;
     public $kelasModel;
 
+
     public function __construct()
     {
         $this->userModel = new UserModel();
@@ -22,7 +23,7 @@ class UserController extends BaseController
     {
         $data = [
             'title' => 'List User',
-            'user' => $this->userModel->getUser(),        
+            'user' => $this->userModel->getUser(),    
         ];
 
         return view('list_user', $data);
