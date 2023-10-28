@@ -1,7 +1,7 @@
 <?= $this->extend('layouts/app') ?>
 <?= $this->section('content') ?>
 <div class="center">
-    <h1>Create User</h1>
+    <h1>Edit User</h1>
 
     <?php if(session()->getFlashdata('errors')) : ?>
             <div class="row">
@@ -14,18 +14,22 @@
         <?php endif; ?>
 
 
-    <form action="<?= base_url('/user/store') ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= base_url('/user/'.$user['id']) ?>" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="_method" value="PUT">
+    <?= csrf_field()?>
 
         <div class="txt_field">
-          <input type="text" name="nama" placeholder="Nama">
-          <span></span>
+            <input type="text" name="nama" placeholder="Nama" value="<?= $user['nama'] ?>">
+            <span></span>
         </div>
+
 
         <div class="txt_field">
-          <input type="text" name="npm" placeholder="NPM">
+          <input type="text" name="npm" placeholder="NPM" value="<?= $user['npm'] ?>">
           <span></span>
         </div>
-
+	
+	<img src="<?= $user['foto'] ?? 'assets/img/gedik.jpg' ?>" width="50%" height="50%">
         <div class="mb-3">
             <label for="formFile" class="form-label">Foto</label>
             <input type="file" name="foto" id="formFile">
@@ -36,16 +40,16 @@
               <?php
               foreach ($kelas as $item){
                   ?>
-                  <option value="<?= $item['id'] ?>">
-                      <?= $item['nama_kelas'] ?> <?= $item['angkatan'] ?>
-                  </option>
+                  <option value="<?= $item['id'] ?>" <?= $user['id_kelas'] == $item['id'] ? 'selected' : '' ?> >
+                  <?= $item['nama_kelas'] ?> <?= $item['angkatan'] ?>
+                    </option>
                   <?php
               }
               ?>
               
           </select>
         </div>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Save">
     </div>
     </form>
 <?= $this->endSection() ?>

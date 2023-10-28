@@ -6,7 +6,6 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-
     public function saveUser($data){
         $this->insert($data);
     }
@@ -18,7 +17,7 @@ class UserModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'npm', 'id_kelas'];
+    protected $allowedFields    = ['nama', 'npm', 'id_kelas','foto'];
 
     // Dates
     protected $useTimestamps = true;
@@ -29,9 +28,14 @@ class UserModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'nama' => 'required'
+        'nama' => 'required' , 
+        'npm' => 'required'
     ]; 
-    protected $validationMessages   = [];
+    protected $validationMessages   = [
+        'nama' => [
+            'required' => 'Field Nama harus diisi'
+        ]
+    ];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
@@ -45,4 +49,22 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getUser($id = null)
+    {
+        if($id != null){
+        return $this->select('user.*, kelas.nama_kelas, kelas.angkatan')
+            ->join('kelas', 'kelas.id=user.id_kelas')->find($id);
+        }
+        return $this->select('user.*, kelas.nama_kelas, kelas.angkatan')
+            ->join('kelas', 'kelas.id=user.id_kelas')->findAll();
+    }
+
+    public function updateUser($data, $id){
+        return $this->update($id, $data);
+    }
+
+    public function deleteUser($id){
+        return $this->delete($id);
+    }
 }

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
+table{
+ position: absolute;
+ z-index: 2;
+ left: 70px;
+ width: 90%; 
+ border-collapse: collapse;
+ border-spacing: 0;
+ box-shadow: 0 2px 15px rgba(64,64,64,.7);
+ border-radius: 12px 12px 0 0;
+ overflow: hidden;
+ table-layout: fixed;
+}
+
+td , th{
+ text-align: left;
+ height: 50px; /* Tambahkan ini */
+ white-space: nowrap; /* Tambahkan ini */
+ max-width: 200px; /* Batasan lebar maksimum kolom */
+ padding: 10px; /* Sesuaikan sesuai kebutuhan Anda */
+    
+}
+
+th{
+ background-color: #ba68c8;
+ color: #fafafa;
+ font-family: 'Open Sans',Sans-serif;
+ font-weight: 200;
+ text-transform: uppercase;
+}
+
+tr{
+ width: 100%;
+ background-color: #fafafa;
+ font-family: 'Montserrat', sans-serif;
+}
+
+tr:nth-child(even){
+ background-color: #eeeeee;
+}
+
+.tambah{
+    margin-left: 70px;
+    margin-bottom: 10px;
+    margin-top: 50px;
+}
